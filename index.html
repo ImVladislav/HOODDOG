@@ -1812,7 +1812,7 @@
 							<div class="elementor-widget-container">
 								<script>
 									jQuery(function ($) {
-										var rlt_audio = new Audio('/wp-content/uploads/2025/01/Classic_Disney_s_Robin_Hood_Sing_Along_Song_-_Robin_Little_John_Running_Through_The_Forrest.mov.mp3');
+										var rlt_audio = new Audio('1.mp3');
 										rlt_audio.loop = true;
 										$('.yesclick').on('click', function (event) {
 											rlt_audio.play();
@@ -1843,7 +1843,7 @@
 							data-widget_type="button.default">
 							<div class="elementor-widget-container">
 								<div class="elementor-button-wrapper">
-									<a class="elementor-button elementor-size-sm" role="button">
+									<a id="playMusicButton" class="elementor-button elementor-size-sm" role="button">
 										<span class="elementor-button-content-wrapper">
 											<span class="elementor-button-text">ENTER</span>
 										</span>
@@ -1856,6 +1856,27 @@
 			</div>
 		</section>
 	</div>
+
+	<script> 
+
+		document.addEventListener("DOMContentLoaded", function() {
+			const button = document.getElementById("playMusicButton");
+			const audio = new Audio("1.mp3");
+		
+			button.addEventListener("click", function(event) {
+				event.preventDefault(); // Запобігає переходу за посиланням
+				if (audio.paused) {
+					audio.play();
+				} else {
+					audio.pause();
+					audio.currentTime = 0; // Щоб зупинити та почати з початку
+				}
+			});
+		});
+		
+				</script>
+
+
 	<link rel='stylesheet' id='e-animations-css'
 		href='wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.20.3' media='all'>
 	<script src="wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
@@ -1889,6 +1910,7 @@
 		id="pro-elements-handlers-js"></script>
 	<script src="wp-content/plugins/elementor-pro/assets/lib/sticky/jquery.sticky.min.js?ver=3.20.2"
 		id="e-sticky-js"></script>
+
 
 	<!--   Unlimited Elements 1.5.62 Scripts -->
 	<script type='text/javascript' id='unlimited-elements-scripts'>
